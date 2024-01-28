@@ -3,9 +3,9 @@ import { useAuth } from "../../context/authContext";
 import { Navigate, Outlet } from "react-router-dom";
 
 export function Home() {
-  const { token } = useAuth();
+  const { token, setMissToken } = useAuth();
   if (!token) {
-    alert('ログインからやり直してください');
+    setMissToken(true);
     return <Navigate to="/auth" />
   }
 
