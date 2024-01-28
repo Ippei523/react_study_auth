@@ -6,7 +6,7 @@ interface LayoutProps {
 
 export function Layout({ children }: LayoutProps) {
   return (
-    <Box sx={{ display: "flex", width: "70%", alignItems: "center" }}>
+    <Box sx={{ display: "flex", width: "70%", alignItems: "center", justifyContent: "center" }}>
       { children }
     </Box>
   )
