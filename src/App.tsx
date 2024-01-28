@@ -4,7 +4,6 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { Login } from './routes/auth/login';
 import { Signup } from './routes/auth/signup';
 import { Home } from './routes/home';
-import { Auth } from './routes/auth';
 import { useAuth } from './context/authContext';
 
 function App() {
@@ -16,9 +15,9 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/auth" />} />
-      <Route index path="/auth" element={<Auth />} />
-      <Route path="/auth/login" element={<Login />} />
+      <Route path="/" element={<Navigate to="/auth/login" />} />
+      <Route path="/auth" element={<Navigate to="/auth/login" />} />
+      <Route index path="/auth/login" element={<Login />} />
       <Route path="/auth/signup" element={<Signup />} />
       <Route path="/home" element={<Home />} />
     </Routes>

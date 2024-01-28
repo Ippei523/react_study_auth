@@ -6,7 +6,7 @@ export function Home() {
   const { token, setMissToken } = useAuth();
   if (!token) {
     setMissToken(true);
-    return <Navigate to="/auth" />
+    return <Navigate to="/auth/login" />
   }
 
   return (
