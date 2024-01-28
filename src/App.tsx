@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
-import './App.css';
-import { Navigate, Route, Routes } from 'react-router-dom';
-import { Login } from './routes/auth/login';
-import { Signup } from './routes/auth/signup';
-import { Home } from './routes/home';
-import { useAuth } from './context/authContext';
+import React, { useEffect } from "react";
+import "./App.css";
+import { Navigate, Route, Routes } from "react-router-dom";
+import { Login } from "./routes/auth/login";
+import { Signup } from "./routes/auth/signup";
+import { Home } from "./routes/home";
+import { useAuth } from "./context/authContext";
 
 function App() {
   const { token } = useAuth();
