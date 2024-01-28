@@ -3,6 +3,9 @@ import React, { createContext, useContext, useState } from 'react';
 
 interface AuthContextType {
   token: string | null;
+  setToken: React.Dispatch<React.SetStateAction<string | null>>;
+  missToken: boolean;
+  setMissToken: React.Dispatch<React.SetStateAction<boolean>>;
   login: (token: string) => void;
   logout: () => void;
 };
@@ -13,12 +16,16 @@ interface AuthProviderProps {
 
 const AuthContext = createContext<AuthContextType>({
   token: null,
+  setToken: () => {},
+  missToken: false,
+  setMissToken: () => {},
   login: () => {},
   logout: () => {},
 });
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [token, setToken] = useState<null | string>(null);
+  const [missToken, setMissToken] = useState<boolean>(false);
 
   const login = (token: string) => {
     setToken(token);
@@ -29,7 +36,14 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   };
 
   return (
-    <AuthContext.Provider value={{ token, login, logout }}>
+    <AuthContext.Provider value={{
+      token,
+      setToken,
+      login,
+      logout,
+      missToken,
+      setMissToken
+    }}>
       {children}
     </AuthContext.Provider>
   );
