@@ -12,30 +12,26 @@ export function Login() {
     <>
       <AuthLayout
         title="ログイン"
-        toggleAuthButtonTitle="新規登録"
+        toggleAuthButtonTitle="新規登録へ"
         toggleAuthSubTitle="アカウントをお持ちでない方"
         authLayoutType="login"
       >
         <Box sx={{ display: "flex", flexDirection: "column", gap: "40px" }}>
-          <Input type="email" placeholder="メールアドレスを入力してください" />
-          <Input type="password" placeholder="パスワードを入力してください" />
+          <Input
+            sx={{ fontSize: "18px" }}
+            type="email"
+            placeholder="メールアドレスを入力してください"
+          />
+          <Input
+            sx={{ fontSize: "18px" }}
+            type="password"
+            placeholder="パスワードを入力してください"
+          />
         </Box>
         <Box sx={{ display: "flex", justifyContent: "center" }}>
           <Button variant="contained" color="primary">
             ログイン
           </Button>
-        </Box>
-        <Box
-          sx={{ width: "100%", height: "1px", backgroundColor: "#C0C0C0" }}
-        ></Box>
-        <Box>
-          <GoogleLogin
-            clientId="YOUR_GOOGLE_CLIENT_ID"
-            buttonText="Googleアカウントでログイン"
-            onSuccess={() => {}}
-            onFailure={() => {}}
-            cookiePolicy={"single_host_origin"}
-          />
         </Box>
       </AuthLayout>
       {missToken && (
