@@ -63,9 +63,9 @@ export function AuthLayout({
           color="secondary"
           onClick={() => {
             if (authLayoutType === "login") {
-              router("/auth/login");
-            } else {
               router("/auth/signup");
+            } else {
+              router("/auth/login");
             }
           }}
         >
