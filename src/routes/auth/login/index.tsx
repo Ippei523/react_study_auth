@@ -1,6 +1,5 @@
 import { Alert, Box, Button, Input, Snackbar } from "@mui/material";
 import { useAuth } from "../../../context/authContext";
-import GoogleLogin from "react-google-login";
 import { AuthLayout } from "../../../components/authLayout";
 
 export function Login() {
