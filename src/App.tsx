@@ -5,22 +5,26 @@ import { Login } from "./routes/auth/login";
 import { Signup } from "./routes/auth/signup";
 import { Home } from "./routes/home";
 import { useAuth } from "./context/authContext";
+import { useForm, FormProvider } from "react-hook-form";
 
 function App() {
   const { token } = useAuth();
+  const methods = useForm();
 
   useEffect(() => {
     console.log(token);
   }, [token]);
 
   return (
-    <Routes>
-      <Route path="/" element={<Navigate to="/auth/login" />} />
-      <Route path="/auth" element={<Navigate to="/auth/login" />} />
-      <Route index path="/auth/login" element={<Login />} />
-      <Route path="/auth/signup" element={<Signup />} />
-      <Route path="/home" element={<Home />} />
-    </Routes>
+    <FormProvider {...methods}>
+      <Routes>
+        <Route path="/" element={<Navigate to="/auth/login" />} />
+        <Route path="/auth" element={<Navigate to="/auth/login" />} />
+        <Route index path="/auth/login" element={<Login />} />
+        <Route path="/auth/signup" element={<Signup />} />
+        <Route path="/home" element={<Home />} />
+      </Routes>
+    </FormProvider>
   );
 }
 
